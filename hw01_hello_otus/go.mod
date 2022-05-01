@@ -1,4 +1,4 @@
-module hw01_hello_otus
+module github.com/Tiksy1/otus_hw-test/tree/master/hw01_hello_otus
 
 go 1.18
 
