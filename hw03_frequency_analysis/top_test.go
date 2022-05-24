@@ -135,4 +135,16 @@ func TestTop10(t *testing.T) {
 		require.Equal(t, expected, Top10(text))
 	})
 
+	t.Run("numerals & words", func(t *testing.T) {
+		text := `12,12 12,15,15 15,15,555,555 555 fff kkkk - kkkk kkkk kkkk 11 11 11`
+		expected := []string{
+			"15",
+			"kkkk",
+			"11",
+			"12",
+			"555",
+			"fff",
+		}
+		require.Equal(t, expected, Top10(text))
+	})
 }
