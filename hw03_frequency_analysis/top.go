@@ -14,7 +14,8 @@ type wordsCount struct {
 func Top10(text string) []string {
 	woCoMap := make(map[string]int)
 	woCoSls := make([]wordsCount, 0, len(woCoMap))
-	ans := make([]string, 0, 10)
+	fin := 10
+	ans := make([]string, 0, fin)
 	var unSignedText []string
 	if len(text) == 0 {
 		return ans
@@ -36,11 +37,11 @@ func Top10(text string) []string {
 		}
 		return woCoSls[i].word < woCoSls[j].word
 	})
-	for _, wc := range woCoSls { // final slice
-		ans = append(ans, wc.word)
+	if len(woCoSls) < 10 {
+		fin = len(woCoSls)
 	}
-	if len(ans) > 10 {
-		return ans[:10]
+	for i := 0; i < fin; i++ {
+		ans = append(ans, woCoSls[i].word)
 	}
 	return ans
 }
